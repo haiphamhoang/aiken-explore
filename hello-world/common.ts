@@ -9,7 +9,11 @@ import {
 import { applyParamsToScript } from "@meshsdk/core-csl";
 import blueprint from "./plutus.json";
 
-const blockchainProvider = new BlockfrostProvider(process.env.BLOCKFROST_PROJECT_ID);
+const BLOCKFROST_PROJECT_ID = process.env.BLOCKFROST_PROJECT_ID;
+if (!BLOCKFROST_PROJECT_ID) {
+    throw new Error("BLOCKFROST_PROJECT_ID environment variable is not set");
+}
+const blockchainProvider = new BlockfrostProvider(BLOCKFROST_PROJECT_ID);
 
 // wallet for signing transactions
 export const wallet = new MeshWallet({

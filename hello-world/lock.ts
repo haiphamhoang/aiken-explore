@@ -6,7 +6,7 @@ async function main() {
     const assets: Asset[] = [
         {
             unit: "lovelace",
-            quantity: "1000000",
+            quantity: "10000000",
         },
     ];
 
@@ -31,7 +31,7 @@ async function main() {
 
     const signedTx = await wallet.signTx(unsignedTx);
     const txHash = await wallet.submitTx(signedTx);
-    console.log(`1 tADA locked into the contract at Tx ID: ${txHash}`);
+    console.log(`10 tADA locked into the contract at Tx ID: ${txHash}`);
 }
 
 main();
